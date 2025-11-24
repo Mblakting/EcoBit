@@ -21,8 +21,6 @@
 
     <!-- Base JS (app-specific) -->
     <script src="{{ asset('assets/js/base.js') }}" defer></script>
-
-    <!-- Conditionally load AmCharts only if #chartdiv exists to save bandwidth on pages without charts -->
     <script>
         (function(){
             function loadScript(src, attrs){
@@ -39,12 +37,10 @@
             }
 
             if(document.getElementById('chartdiv')){
-                // Load amcharts libs in sequence then initialize
                 loadScript('https://cdn.amcharts.com/lib/4/core.js')
                 .then(function(){ return loadScript('https://cdn.amcharts.com/lib/4/charts.js'); })
                 .then(function(){ return loadScript('https://cdn.amcharts.com/lib/4/themes/animated.js'); })
                 .then(function(){
-                    // initialize chart if needed (guarded to avoid errors)
                     if(window.am4core && window.am4charts){
                         am4core.ready(function () {
                             am4core.useTheme(am4themes_animated);
@@ -73,7 +69,6 @@
                         });
                     }
                 }).catch(function(err){
-                    // Silently fail - chart won't render but page stays usable
                     console.warn('Failed to load amcharts:', err);
                 });
             }

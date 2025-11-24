@@ -71,20 +71,19 @@ $foto_out=Storage::url('uploads/absensi/'.$d->foto_out);
 <script>
     $(function(){
         $(".tampilkanpeta").click(function(e){
-            // e.preventDefault(); // Tambahkan ini jika ingin mencegah default action (misalnya navigasi)
             var id = $(this).attr("id");
-            $.ajax({ // <-- PERBAIKAN: Gunakan kurung kurawal setelah $.ajax
+            $.ajax({ 
                 type:'POST',
                 url:'/tampilkanpeta',
                 data:{
-                    _token:"{{csrf_token()}}", // <-- PERBAIKAN: Tambahkan koma di sini
-                    id:id // <-- PERBAIKAN: Ganti '_id' menjadi 'id'
+                    _token:"{{csrf_token()}}", 
+                    id:id 
                 },
                 cache:false,
                 success:function(respond){
                     $("#loadmap").html(respond);
                 }
-            }); // <-- PERBAIKAN: Tambahkan titik koma setelah penutup kurung kurawal
+            });
             $("#modal-tampilkanpeta").modal("show");
         });
     })

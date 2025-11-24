@@ -78,16 +78,12 @@
             todayHighlight: true,
             format: 'yyyy-mm-dd'
         });
-        
-        // Panggil fungsi loadpresensi saat halaman dimuat
         loadpresensi();
     });
     
     function loadpresensi() {
-        // PERBAIKAN: Ambil nilai tanggal secara eksplisit dari input
         var tanggal = $("#tanggal").val(); 
         
-        // Pastikan ada tanggal sebelum mengirim request
         if (tanggal) { 
             $.ajax({
                 type: 'POST',
@@ -98,7 +94,6 @@
                 },
                 cache: false,
                 success: function(respond) {
-                    // Isi tbody dengan data yang diterima dari server
                     $("#loadpresensi").html(respond);
                 },
                 error: function(xhr, status, error) {
@@ -108,8 +103,6 @@
             });
         }
     }
-    
-    // Event handler saat tanggal berubah
     $("#tanggal").change(function(e) {
         loadpresensi();
     });

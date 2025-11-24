@@ -18,6 +18,10 @@
                 <span id="user-role">{{Auth::guard('siswa')->user()->kelas}} : {{Auth::guard('siswa')->user()->nisn}}</span>
             </div>
         </div>
+        <a href="/proseslogout" class="btn btn-danger btn-sm" 
+           style="position: absolute; top: 40px; right: 15px; z-index: 100;">
+            <ion-icon name="log-out-outline"></ion-icon>
+        </a>
     </div>
 
     <div class="section" id="menu-section">
@@ -26,7 +30,7 @@
                 <div class="list-menu">
                     <div class="item-menu text-center">
                         <div class="menu-icon">
-                            <a href="" class="green" style="font-size: 40px;">
+                            <a href="/presensi/editprofile" class="green" style="font-size: 40px;">
                                 <ion-icon name="person-sharp"></ion-icon>
                             </a>
                         </div>
@@ -36,17 +40,17 @@
                     </div>
                     <div class="item-menu text-center">
                         <div class="menu-icon">
-                            <a href="" class="danger" style="font-size: 40px;">
+                            <a href="https://calendar.google.com/calendar/u/0/r" class="danger" style="font-size: 40px;">
                                 <ion-icon name="calendar-number"></ion-icon>
                             </a>
                         </div>
                         <div class="menu-name">
-                            <span class="text-center">Cuti</span>
+                            <span class="text-center">kalender</span>
                         </div>
                     </div>
                     <div class="item-menu text-center">
                         <div class="menu-icon">
-                            <a href="" class="warning" style="font-size: 40px;">
+                            <a href="/presensi/histori" class="warning" style="font-size: 40px;">
                                 <ion-icon name="document-text"></ion-icon>
                             </a>
                         </div>
@@ -56,7 +60,7 @@
                     </div>
                     <div class="item-menu text-center">
                         <div class="menu-icon">
-                            <a href="" class="orange" style="font-size: 40px;">
+                            <a href="/presensi/create" class="orange" style="font-size: 40px;">
                                 <ion-icon name="location"></ion-icon>
                             </a>
                         </div>
@@ -128,7 +132,9 @@
                     <div class="card">
                         <div class="card-body text-center" style="padding:20px 0 12px 0;">
                             <span class = "badge bg-danger" style="position:absolute;top:3px;right: 10px;font: size 0.6rem;z-index:999">{{$rekappresensi->jmlhadir}}</span>
-                            <h4 class="text-primary">Hadir</h4>
+                            <a href="/presensi/histori" class="item{{ request()->is('presensi/histori') ? ' active' : '' }}">
+                           <h4 class="button">Hadir</h4>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -136,7 +142,9 @@
                     <div class="card">
                         <div class="card-body text-center" style="padding:20px 0 12px 0;">
                             <span class = "badge bg-danger" style="position:absolute;top:3px;right: 10px;font: size 0.6rem;z-index:999">{{$rekapizin->jmlizin}}</span>
-                            <h4 class="text-primary">Izin</h4>
+                            <a href="/presensi/izin" class="item{{ request()->is('presensi/izin') ? ' active' : '' }}">
+                            <h4 class="button"> Izin </h4>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -144,7 +152,9 @@
                     <div class="card">
                         <div class="card-body text-center" style="padding:20px 0 12px 0;">
                             <span class = "badge bg-danger" style="position:absolute;top:3px;right: 10px;font: size 0.6rem;z-index:999">{{$rekapizin->jmlsakit}}</span>
-                            <h4 class="text-primary">Sakit</h4>
+                            <a href="/presensi/izin" class="item{{ request()->is('presensi/izin') ? ' active' : '' }}">
+                            <h4 class="button"> Sakit </h4>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -152,7 +162,9 @@
                     <div class="card">
                         <div class="card-body text-center" style="padding:20px 0 12px 0;">
                             <span class = "badge bg-danger" style="position:absolute;top:3px;right: 10px;font: size 0.6rem;z-index:999">{{$rekappresensi->jmlterlambat}}</span>
-                            <h4 class="text-primary">Telat</h4>
+                            <a href="/presensi/histori" class="item{{ request()->is('presensi/histori') ? ' active' : '' }}">
+                           <h4 class="button">Telat</h4>
+                            </a>
                         </div>
                     </div>
                 </div>

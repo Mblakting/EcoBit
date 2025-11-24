@@ -146,18 +146,13 @@
 
 @push('myscript')
 <script>
-    // Inisialisasi jQuery (asumsi jQuery sudah dimuat)
     $(function() {
-        // 1. Mengisi ID ke dalam Modal saat tombol 'Proses' diklik
         $(document).on('click', '[data-id-izin-sakit]', function(e) {
             e.preventDefault();
-            // Ambil ID dari custom attribute 'data-id-izin-sakit'
             var id_izin_sakit = $(this).data("id-izin-sakit");
-            // Masukkan ID tersebut ke dalam hidden input di form modal
             $("#id_izin_sakit_form").val(id_izin_sakit);
         });
 
-        // 2. Konfirmasi Pembatalan Izin/Sakit (Improvement UX)
         $(document).on('click', '.btn-batalkan-izin', function(e) {
             var href = $(this).attr('href');
             if (!confirm('Apakah Anda yakin ingin membatalkan status izin/sakit ini?')) {

@@ -18,7 +18,6 @@ class JurusanController extends Controller
             $query->where('nama_jurusan', 'like','%'.$nama_jurusan.'%');
         }
         $jurusan=$query->get();
-        //$jurusan=DB::table('jurusan')->orderBy('kode_jurusan')->get();
         return view('jurusan.index', compact('jurusan'));
     }
 
