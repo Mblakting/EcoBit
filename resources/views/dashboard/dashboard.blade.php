@@ -45,7 +45,7 @@
                             </a>
                         </div>
                         <div class="menu-name">
-                            <span class="text-center">kalender</span>
+                            <span class="text-center">Kalender</span>
                         </div>
                     </div>
                     <div class="item-menu text-center">
